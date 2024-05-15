@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# R data files
+*.RData
+*.rdata
+
+# RStudio files
+.Rproj.user/
+
+# Data files
+data/*
+
+# VS Code settings
+.vscode/

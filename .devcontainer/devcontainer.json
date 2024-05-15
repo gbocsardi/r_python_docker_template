@@ -1,0 +1,21 @@
+{
+    "name": "Python and R Environment",
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "options": [
+            "--platform=linux/amd64"
+        ]
+    },
+    "workspaceFolder": "/workspace",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "ms-python.python",
+        "ikuyadeu.r",
+        "ms-azuretools.vscode-docker"
+    ],
+    // "forwardPorts": [
+    //     8787
+    // ]
+}
