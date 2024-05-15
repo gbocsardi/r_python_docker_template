@@ -29,6 +29,7 @@ docker run --platform linux/amd64 -it --rm \
     -v $(pwd)/data:/workspace/data \
     -v $(pwd)/code:/workspace/code \
     -p 8787:8787 \
+    -p 8888:8888 \
     python-r-env
 ```
 ### Usage
@@ -41,11 +42,15 @@ docker run --platform linux/amd64 -it --rm \
 3. From the opened context menu select your container.
 4. You're in your `workspace` directory, the parent directory of `code/` and `data/`.
 
-#### RStudi Server for R
+#### RStudio Server for R
 
 - You can access RStudio Server at `http://localhost:8787`.
 - Login credentials are `rstudio` for both username and password (without quotes).
 - You're in your `workspace` directory, the parent directory of `code/` and `data/`.
+
+#### Jupyter Notebook
+- You can access Jupyter Notebook at `http://localhost:8888`. 
+- The access credentials are disabled in the `supervisord.conf` file. You can enable it by removing the `--NotebookApp.token=''` and `--NotebookApp.password=''` flag from the `supervisord.conf` file.
 
 ### Customization
 
@@ -53,3 +58,11 @@ docker run --platform linux/amd64 -it --rm \
 - **Adding R Packages**: Update the `install_packages.R` file with the required packages.
 
 
+# On Windows (UNTESTED)
+Delete the `--platform linux/amd64` flag from the `docker run` command.
+Delete the below from the `devcontainer.json` file:
+```sh
+"options": [
+            "--platform=linux/amd64"
+        ]
+```

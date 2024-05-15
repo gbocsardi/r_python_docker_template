@@ -47,4 +47,15 @@ COPY install_packages.R /workspace/
 RUN Rscript install_packages.R
 
 
-CMD /usr/lib/rstudio-server/bin/rserver --server-daemonize=0
+# CMD /usr/lib/rstudio-server/bin/rserver --server-daemonize=0
+
+# Install supervisord
+RUN apt-get install -y supervisor
+
+# Copy supervisord configuration file
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Expose Jupyter Notebook port
+EXPOSE 8888
+
+CMD ["/usr/bin/supervisord"]

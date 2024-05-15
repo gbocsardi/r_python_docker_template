@@ -1,2 +1,2 @@
-install.packages("dplyr")
-install.packages("ggplot2")
+# commented out for speed in testing
+# install.packages("ggplot2")
